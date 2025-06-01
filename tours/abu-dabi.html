@@ -9,6 +9,17 @@
 <body>
     <header>
         <h1>GRAND TOURIST</h1>
+        <div class="cart-container">
+            <button id="cart-button">Корзина (<span id="cart-count">0</span>)</button>
+            <div class="cart-dropdown" id="cart-dropdown">
+                <div class="cart-items" id="cart-items">
+                </div>
+                <div class="cart-total">
+                    Итого: $<span id="cart-total">0</span>
+                </div>
+                <button class="checkout-button">Оформить заказ</button>
+            </div>
+        </div>
     </header>
 
     <nav>
@@ -24,12 +35,14 @@
             <li>Стоимость: от 2800$</li>
             <li>Включено: Перелеты, проживание, завтраки, экскурсии</li>
         </ul>
-        <button>Забронировать</button>
+        <button class="book-button" data-name="Тур в Абу-Даби" data-price="3500$">Забронировать</button>
     </div>
 
     <footer>
-        <p>&copy; 2023 Grand Tourist</p>
+        <p>&copy; 2025 Grand Tourist</p>
         <p>Контакты: info@grandtourist.com</p>
     </footer>
+
+    <script src="../script/cart.js"></script>
 </body>
 </html>

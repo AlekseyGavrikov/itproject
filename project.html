@@ -5,68 +5,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GRAND TOURIST</title>
     <link rel="stylesheet" href="style/project.css">
+    <script src="script/cart.js"></script>
 </head>
 <body>
     <header>
         <h1>GRAND TOURIST</h1>
-    </header>
-
-    <nav>
+        <nav>
         <a href="#">Главная</a>
         <a href="#">Туры</a>
         <a href="#">Направления</a>
         <a href="#">О нас</a>
         <a href="#">Контакты</a>
-    </nav>
+        </nav>
+        <div class="cart-container">
+            <button id="cart-button">Корзина (<span id="cart-count">0</span>)</button>
+            <div class="cart-dropdown" id="cart-dropdown">
+                <div class="cart-items" id="cart-items">
+                </div>
+                <div class="cart-total">
+                    Итого: $<span id="cart-total">0</span>
+                </div>
+                <button class="checkout-button">Оформить заказ</button>
+            </div>
+    </header>
 
     <section class="places-grid">
         <a href="tours/nepal.html">
-            <div class="container" style="background-image: url('images/непал.jpg')">Непал</div>
+            <div class="container" style="background-image: url('images/nepal.jpg')">Непал</div>
         </a>
         <a href="tours/kosta-rika.html">
             <div class="container" style="background-image: url('images/kosta-rika.jpg')">Коста-Рика</div>
         </a>
         <a href="tours/newzeland.html">
-            <div class="container" style="background-image: url('images/новая%20Зеландия.jpg')">Новая Зеландия</div>
+            <div class="container" style="background-image: url('images/new-zeland.jpg')">Новая Зеландия</div>
         </a>
         <a href="tours/spain.html">
-            <div class="container" style="background-image: url('images/испания.jpg')">Испания</div>
+            <div class="container" style="background-image: url('images/spain.jpg')">Испания</div>
         </a>
         <a href="tours/peru.html">
             <div class="container" style="background-image: url('images/peru.jpg')">Перу</div>
         </a>
         <a href="tours/vietnam.html">
-            <div class="container" style="background-image: url('images/вьетнам.jpg')">Вьетнам</div>
+            <div class="container" style="background-image: url('images/vietnam.jpg')">Вьетнам</div>
         </a>
         <a href="tours/italy.html">
-            <div class="container" style="background-image: url('images/италия.jpg')">Италия</div>
+            <div class="container" style="background-image: url('images/italy.jpg')">Италия</div>
         </a>
         <a href="tours/japan.html">
-            <div class="container" style="background-image: url('images/япония.jpg')">Япония</div>
+            <div class="container" style="background-image: url('images/japan.jpg')">Япония</div>
         </a>
         <a href="tours/maldivi.html">
-            <div class="container" style="background-image: url('images/мальдивы.jpg')">Мальдивы</div>
+            <div class="container" style="background-image: url('images/maldivi.jpg')">Мальдивы</div>
         </a>
         <a href="tours/bali.html">
-            <div class="container" style="background-image: url('images/бали.jpg')">Бали</div>
+            <div class="container" style="background-image: url('images/bali.jpg')">Бали</div>
         </a>
         <a href="tours/seisheli.html">
-            <div class="container" style="background-image: url('images/сейшелы.jpg')">Сейшелы</div>
+            <div class="container" style="background-image: url('images/seisheli.jpg')">Сейшелы</div>
         </a>
         <a href="tours/bora-bora.html">
-            <div class="container" style="background-image: url('images/бора-бора.jpg')">Бора-Бора</div>
+            <div class="container" style="background-image: url('images/bora-bora.jpg')">Бора-Бора</div>
         </a>
         <a href="tours/grece.html">
-            <div class="container" style="background-image: url('images/греция.jpg')">Греция</div>
+            <div class="container" style="background-image: url('images/grece.jpg')">Греция</div>
         </a>
         <a href="tours/france.html">
-            <div class="container" style="background-image: url('images/франция.jpg')">Франция</div>
+            <div class="container" style="background-image: url('images/france.jpg')">Франция</div>
         </a>
         <a href="tours/portug.html">
-            <div class="container" style="background-image: url('images/португалия.jpg')">Португалия</div>
+            <div class="container" style="background-image: url('images/portugal.jpg')">Португалия</div>
         </a>
         <a href="tours/turkey.html">
-            <div class="container" style="background-image: url('images/турция.jpg')">Турция</div>
+            <div class="container" style="background-image: url('images/turkey.jpg')">Турция</div>
         </a>
         <a href="tours/abu-dabi.html">
             <div class="container" style="background-image: url('images/abu-dabi.jpg')">Абу-Даби</div>
@@ -91,6 +101,18 @@
         <div class="testimonial">
             <p>"Все было организовано на высшем уровне, рекомендую!"</p>
             <p>- Мария С.</p>
+        </div>
+            <div class="testimonial">
+            <p>"Все было организовано на высшем уровне, рекомендую!"</p>
+            <p>- Иван Г.</p>
+        </div>
+            <div class="testimonial">
+            <p>"Все было организовано на высшем уровне, рекомендую!"</p>
+            <p>- Николай П.</p>
+        </div>
+            <div class="testimonial">
+            <p>"Все было организовано на высшем уровне, рекомендую!"</p>
+            <p>- Ирина С.</p>
         </div>
     </section>
 

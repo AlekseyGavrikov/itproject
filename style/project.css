@@ -159,3 +159,83 @@ body {
     bottom: 0;
     width: 100%;
   }
+/*корзина*/
+.cart-container {
+    position: relative;
+    display: inline-block;
+    float: right;
+    margin-top: 10px;
+}
+
+#cart-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.cart-dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: black;
+    min-width: 300px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.cart-container:hover .cart-dropdown {
+    display: block;
+}
+
+.cart-items {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.remove-item {
+    color: red;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.cart-total {
+    font-weight: bold;
+    text-align: right;
+    margin: 10px 0;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.checkout-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.book-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
