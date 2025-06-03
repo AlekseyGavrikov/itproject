@@ -1,14 +1,14 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   const themeSwitcher = document.getElementById('themeSwitcher');
-  
+
   if (!themeSwitcher) return;
-  
+
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  
+
   if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && prefersDark)) {
     document.documentElement.setAttribute('data-theme', 'dark');
   }
-  
+
   themeSwitcher.addEventListener('click', () => {
     const currentTheme = document.documentElement.getAttribute('data-theme');
     if (currentTheme === 'dark') {

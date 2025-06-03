@@ -21,7 +21,6 @@ class LocalTimeDisplay {
             'turkey': 'Europe/Istanbul',
             'vietnam': 'Asia/Ho_Chi_Minh',
             'abu-dabi': 'Asia/Dubai'
-            // остальные временные зоны
         };
         this.pageName = this.getPageName();
         this.init();
@@ -43,7 +42,7 @@ class LocalTimeDisplay {
         try {
             const response = await fetch(`https://worldtimeapi.org/api/timezone/${timezone}`);
             if (!response.ok) throw new Error('Network response was not ok');
-            
+
             const data = await response.json();
             this.displayTime(data.datetime, timezone);
         } catch (error) {

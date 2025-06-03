@@ -99,9 +99,9 @@ class ShoppingCart {
 
 document.addEventListener('DOMContentLoaded', () => {
     const cart = new ShoppingCart();
-    
+
     document.querySelectorAll('.book-button').forEach(button => {
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function () {
             cart.addItem(
                 this.getAttribute('data-name'),
                 this.getAttribute('data-price')
