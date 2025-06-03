@@ -40,37 +40,25 @@ class LocalTimeDisplay {
 
     async updateTime(timezone) {
         try {
-            const response = await fetch(`https://worldtimeapi.org/api/timezone/${timezone}`);
-            if (!response.ok) throw new Error('Network response was not ok');
+            const API_KEY = 'D2OMWZNBOSOI';
+            const response = await fetch(
+                `https://api.timezonedb.com/v2.1/get-time-zone?key=${API_KEY}&format=json&by=zone&zone=${timezone}`
+            );
+            if (!response.ok) throw new Error('Ошибка TimeZoneDB');
 
             const data = await response.json();
-            this.displayTime(data.datetime, timezone);
+            const timeStr = data.formatted.substring(11, 16);
+            document.getElementById('local-time').textContent = timeStr;
         } catch (error) {
-            console.error('Ошибка получения времени:', error);
-            this.displayFallbackTime(timezone);
+            console.error('TimeZoneDB не ответил, использую локальное время:', error);
+            const localTime = new Date().toLocaleTimeString('ru-RU', {
+                timeZone: timezone,
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: false
+            });
+            document.getElementById('local-time').textContent = localTime;
         }
-    }
-
-    displayTime(datetime, timezone) {
-        const date = new Date(datetime);
-        const timeString = date.toLocaleTimeString('ru-RU', {
-            timeZone: timezone,
-            hour: '2-digit',
-            minute: '2-digit',
-            hour12: false
-        });
-        document.getElementById('local-time').textContent = timeString;
-    }
-
-    displayFallbackTime(timezone) {
-        const options = {
-            timeZone: timezone,
-            hour: '2-digit',
-            minute: '2-digit',
-            hour12: false
-        };
-        const timeString = new Date().toLocaleTimeString('ru-RU', options);
-        document.getElementById('local-time').textContent = `~ ${timeString}`;
     }
 }
 
