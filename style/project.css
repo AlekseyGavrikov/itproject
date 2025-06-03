@@ -292,7 +292,7 @@ button:hover,
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/*Местное время*/
+/*местное время */
 .time-value {
   font-size: 2.8rem;
   font-weight: bold;
@@ -337,4 +337,87 @@ button:hover,
 
 [data-theme="dark"] .local-time-widget .time-value {
   color: #8BC34A;
+}
+
+@media (max-width: 1024px) {
+  .places-grid {
+    width: 90%;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .container {
+    height: 180px;
+    font-size: 1.1em;
+  }
+
+  header h1 {
+    font-size: 2em;
+  }
+
+  nav a {
+    padding: 0.4em 0.8em;
+    margin: 0 0.3em;
+  }
+
+  .testimonials {
+    width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    background-attachment: fixed;
+  }
+
+  .places-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    width: 95%;
+  }
+
+  .container {
+    height: 150px;
+    font-size: 1em;
+  }
+
+  header h1 {
+    font-size: 1.8em;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  nav a {
+    margin: 0.2em;
+    padding: 0.3em 0.6em;
+    font-size: 0.9em;
+  }
+
+  .cart-container {
+    float: none;
+    margin: 10px auto;
+    display: block;
+    text-align: center;
+  }
+
+  .cart-dropdown {
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .testimonials {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .theme-switcher {
+    bottom: 15px;
+    right: 15px;
+    width: 45px;
+    height: 45px;
+  }
 }
