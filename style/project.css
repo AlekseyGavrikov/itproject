@@ -240,22 +240,6 @@ body {
     margin-top: 10px;
 }
 
-/* Добавлен BEM */
-.tour-details__header {}
-.tour-details__image {}
-.tour-details__time {}
-
-/* Адаптивность */
-@media (max-width: 768px) {
-  .places-grid {
-    grid-template-columns: 1fr;
-  }
-  .tour-details {
-    width: 95%;
-  }
-}
-
-/* Контрастность проверена */
 :root {
   --text-dark: #333;
   --text-light: #fff;
@@ -453,7 +437,6 @@ button:hover, .book-button:hover, .checkout-button:hover, #cart-button:hover {
     letter-spacing: 1px;
 }
 
-/* Для темной темы */
 [data-theme="dark"] .local-time-widget {
     background: rgba(255, 255, 255, 0.15);
 }
