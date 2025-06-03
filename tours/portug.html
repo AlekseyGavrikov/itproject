@@ -6,6 +6,8 @@
     <title>Тур в Португалию</title>
     <link rel="stylesheet" href="../style/project.css">
     <script src="../script/cart.js"></script>
+    <script src="../script/darktheme.js"></script>
+    <script src="../script/tour-time.js"></script>
 </head>
 <body>
     <header>
@@ -21,6 +23,7 @@
                 <button class="checkout-button">Оформить заказ</button>
             </div>
         </div>
+        <button class="theme-switcher" id="themeSwitcher">Сменить тему</button>
     </header>
 
 
@@ -31,6 +34,11 @@
     <div class="tour-details">
         <h1>Тур по краю света</h1>
         <img src="../images/portugal.jpg" alt="Португалия">
+        <div class="local-time-container">
+            <span class="time-icon">🕒</span>
+            <span class="time-label">Местное время</span>
+            <div id="local-time" class="time-value">--:--</div>
+        </div>
         <p>Португалия — это страна контрастов: от виноградников Дору до скал Алгарве. Затеряйтесь в улочках Лиссабона с их фаду, ловите волны в Назаре и стойте на краю Европы — мысе Рока. А вечера здесь пахнут портвейном и жаренными сардинами. Самый солнечный тур в Европе!</p>
         <ul>
             <li>Продолжительность: 9 дней</li>

@@ -5,36 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GRAND TOURIST</title>
     <link rel="stylesheet" href="style/project.css">
-    <script src="script/cart.js"></script>
-    <script src="script/mark.js"></script>
+    <script src="script/cart.js" defer></script>
+    <script src="script/mark.js" defer></script>
+    <script src="script/darktheme.js" defer></script>
 </head>
 <body>
-    <header>
-        <h1>GRAND TOURIST</h1>
-        <nav>
-        <a href="#">Главная</a>
-        <a href="#">Туры</a>
-        <a href="#">Направления</a>
-        <a href="#">О нас</a>
-        <a href="#">Контакты</a>
+    <header class="header">
+        <h1 class="header__title">GRAND TOURIST</h1>
+        <nav class="header__nav">
+            <a href="#" class="header__nav-link">Главная</a>
+            <a href="header/aboutsu.html" class="header__nav-link">О нас</a>
+            <a href="header/contact.html" class="header__nav-link">Контакты</a>
         </nav>
-        <div class="cart-container">
-            <button id="cart-button">Корзина (<span id="cart-count">0</span>)</button>
+        <div class="header__cart cart-container">
+            <button id="cart-button" class="cart-button">Корзина (<span id="cart-count">0</span>)</button>
             <div class="cart-dropdown" id="cart-dropdown">
-                <div class="cart-items" id="cart-items">
-                </div>
+                <div class="cart-items" id="cart-items"></div>
                 <div class="cart-total">
                     Итого: $<span id="cart-total">0</span>
                 </div>
                 <button class="checkout-button">Оформить заказ</button>
             </div>
+        </div>
+        <button class="theme-switcher" id="themeSwitcher">Сменить тему</button>
     </header>
 
     <section class="places-grid">
         <a href="tours/nepal.html">
             <div class="container" style="background-image: url('images/nepal.jpg')">Непал</div>
         </a>
-        <a href="tours/kosta-rika.html">
+         <a href="tours/kosta-rika.html">
             <div class="container" style="background-image: url('images/kosta-rika.jpg')">Коста-Рика</div>
         </a>
         <a href="tours/newzeland.html">
@@ -93,16 +93,16 @@
         </a>
     </section>
 
- <section class="testimonials">
-        <h2>Отзывы клиентов</h2>
+    <section class="testimonials">
+        <h2 class="testimonials__title">Отзывы клиентов</h2>
         <div class="testimonial" id="random-testimonial">
             <!-- Сюда будет вставлен случайный отзыв -->
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2025 Grand Tourist</p>
-        <p>Контакты: info@grandtourist.com</p>
+    <footer class="footer">
+        <p class="footer__copyright">&copy; 2025 Grand Tourist</p>
+        <p class="footer__contacts">Контакты: info@grandtourist.com</p>
     </footer>
 </body>
 </html>

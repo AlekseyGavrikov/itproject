@@ -6,10 +6,25 @@
     <title>Тур на Бали</title>
     <link rel="stylesheet" href="../style/project.css">
     <script src="../script/cart.js"></script>
+    <script src="../script/darktheme.js"></script>
+    <script src="../script/tour-time.js"></script>
+    
 </head>
 <body>
     <header>
         <h1>GRAND TOURIST</h1>
+        <div class="cart-container">
+            <button id="cart-button">Корзина (<span id="cart-count">0</span>)</button>
+            <div class="cart-dropdown" id="cart-dropdown">
+                <div class="cart-items" id="cart-items">
+                </div>
+                <div class="cart-total">
+                    Итого: $<span id="cart-total">0</span>
+                </div>
+                <button class="checkout-button">Оформить заказ</button>
+            </div>
+        </div>
+        <button class="theme-switcher" id="themeSwitcher">Сменить тему</button>
     </header>
 
 
@@ -20,6 +35,11 @@
     <div class="tour-details">
         <h1>Райский отдых на Бали</h1>
         <img src="../images/bali.jpg" alt="Бали">
+        <div class="local-time-container">
+            <span class="time-icon">🕒</span>
+            <span class="time-label">Местное время</span>
+            <div id="local-time" class="time-value">--:--</div>
+        </div>
         <p>Бали — остров богов, где время замедляется, а природа очаровывает с первого взгляда. Пляжи с черным и золотым песком, водопады, скрытые в джунглях, и древние храмы создают атмосферу гармонии. Здесь вы попробуете настоящую балийскую кухню, освоите серфинг на волнах Куты, встретите рассвет у вулкана Батур и погрузитесь в мир спа-ритуалов. Бали — это не просто путешествие, это перерождение души!</p>
         <ul>
             <li>Продолжительность: 12 дней</li>

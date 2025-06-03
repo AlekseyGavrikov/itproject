@@ -1,31 +1,70 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // 1. Загружаем корзину из localStorage или создаём пустую
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+class ShoppingCart {
+    constructor() {
+        this.cart = JSON.parse(localStorage.getItem('cart')) || [];
+        this.initElements();
+        this.setupEventListeners();
+        this.updateCartDisplay();
+    }
 
-    // 2. Элементы DOM
-    const cartItemsContainer = document.getElementById('cart-items');
-    const cartCountElement = document.getElementById('cart-count');
-    const cartTotalElement = document.getElementById('cart-total');
-    const cartButton = document.getElementById('cart-button');
-    const cartDropdown = document.getElementById('cart-dropdown');
+    initElements() {
+        this.cartItemsContainer = document.getElementById('cart-items');
+        this.cartCountElement = document.getElementById('cart-count');
+        this.cartTotalElement = document.getElementById('cart-total');
+        this.cartButton = document.getElementById('cart-button');
+        this.cartDropdown = document.getElementById('cart-dropdown');
+    }
 
-    // 3. Обновляем отображение корзины
-    function updateCartDisplay() {
-        // Очищаем контейнер
-        cartItemsContainer.innerHTML = '';
+    setupEventListeners() {
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('remove-item')) {
+                this.removeItem(e.target.dataset.index);
+            }
+        });
 
-        // Если корзина пуста
-        if (cart.length === 0) {
-            cartItemsContainer.innerHTML = '<p>Корзина пуста</p>';
-            cartCountElement.textContent = '0';
-            cartTotalElement.textContent = '0';
-            localStorage.setItem('cart', JSON.stringify(cart));
+        const checkoutButton = document.querySelector('.checkout-button');
+        if (checkoutButton) {
+            checkoutButton.addEventListener('click', () => this.checkout());
+        }
+
+        this.cartButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            this.toggleCartDropdown();
+        });
+
+        document.addEventListener('click', () => {
+            this.cartDropdown.style.display = 'none';
+        });
+    }
+
+    addItem(name, price) {
+        this.cart.push({ name, price });
+        this.saveCart();
+        this.updateCartDisplay();
+        alert(`${name} добавлен в корзину!`);
+    }
+
+    removeItem(index) {
+        this.cart.splice(index, 1);
+        this.saveCart();
+        this.updateCartDisplay();
+    }
+
+    saveCart() {
+        localStorage.setItem('cart', JSON.stringify(this.cart));
+    }
+
+    updateCartDisplay() {
+        this.cartItemsContainer.innerHTML = '';
+
+        if (this.cart.length === 0) {
+            this.cartItemsContainer.innerHTML = '<p>Корзина пуста</p>';
+            this.cartCountElement.textContent = '0';
+            this.cartTotalElement.textContent = '0';
             return;
         }
 
-        // Заполняем корзину товарами
         let total = 0;
-        cart.forEach((item, index) => {
+        this.cart.forEach((item, index) => {
             const itemElement = document.createElement('div');
             itemElement.className = 'cart-item';
             itemElement.innerHTML = `
@@ -34,70 +73,39 @@ document.addEventListener('DOMContentLoaded', function() {
                     <span class="remove-item" data-index="${index}">×</span>
                 </span>
             `;
-            cartItemsContainer.appendChild(itemElement);
+            this.cartItemsContainer.appendChild(itemElement);
             total += parseInt(item.price);
         });
 
-        // Обновляем счётчик и сумму
-        cartCountElement.textContent = cart.length;
-        cartTotalElement.textContent = total;
-        localStorage.setItem('cart', JSON.stringify(cart));
+        this.cartCountElement.textContent = this.cart.length;
+        this.cartTotalElement.textContent = total;
     }
 
-    // 4. Добавление тура в корзину
+    checkout() {
+        if (this.cart.length === 0) {
+            alert('Корзина пуста!');
+        } else {
+            alert(`Заказ оформлен! Сумма: $${this.cartTotalElement.textContent}\nСпасибо за покупку!`);
+            this.cart = [];
+            this.saveCart();
+            this.updateCartDisplay();
+        }
+    }
+
+    toggleCartDropdown() {
+        this.cartDropdown.style.display = this.cartDropdown.style.display === 'block' ? 'none' : 'block';
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const cart = new ShoppingCart();
+    
     document.querySelectorAll('.book-button').forEach(button => {
         button.addEventListener('click', function() {
-            const tourName = this.getAttribute('data-name');
-            const tourPrice = this.getAttribute('data-price');
-
-            // Добавляем тур в корзину
-            cart.push({
-                name: tourName,
-                price: tourPrice
-            });
-
-            // Обновляем отображение
-            updateCartDisplay();
-
-            // Показываем уведомление
-            alert(`${tourName} добавлен в корзину!`);
+            cart.addItem(
+                this.getAttribute('data-name'),
+                this.getAttribute('data-price')
+            );
         });
     });
-
-    // 5. Удаление товара из корзины
-    document.addEventListener('click', function(e) {
-        if (e.target.classList.contains('remove-item')) {
-            const index = e.target.getAttribute('data-index');
-            cart.splice(index, 1);
-            updateCartDisplay();
-        }
-    });
-
-    // 6. Оформление заказа
-    const checkoutButton = document.querySelector('.checkout-button');
-    if (checkoutButton) {
-        checkoutButton.addEventListener('click', function() {
-            if (cart.length === 0) {
-                alert('Корзина пуста!');
-            } else {
-                alert(`Заказ оформлен! Сумма: $${cartTotalElement.textContent}\nСпасибо за покупку!`);
-                cart = [];
-                updateCartDisplay();
-            }
-        });
-    }
-
-    // 7. Показываем/скрываем корзину при клике (для мобильных устройств)
-    cartButton.addEventListener('click', function(e) {
-        e.stopPropagation();
-        cartDropdown.style.display = cartDropdown.style.display === 'block' ? 'none' : 'block';
-    });
-
-    // Закрываем корзину при клике вне её области
-    document.addEventListener('click', function() {
-        cartDropdown.style.display = 'none';
-    });
-
-    // Инициализация при загрузке страницы
-    updateCartDisplay();
 });

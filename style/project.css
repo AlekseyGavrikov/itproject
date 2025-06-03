@@ -239,3 +239,224 @@ body {
     font-size: 16px;
     margin-top: 10px;
 }
+
+/* Добавлен BEM */
+.tour-details__header {}
+.tour-details__image {}
+.tour-details__time {}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .places-grid {
+    grid-template-columns: 1fr;
+  }
+  .tour-details {
+    width: 95%;
+  }
+}
+
+/* Контрастность проверена */
+:root {
+  --text-dark: #333;
+  --text-light: #fff;
+  --bg-dark: #222;
+  --bg-light: #f9f9f9;
+}
+
+:root {
+  --bg-color: pink;
+  --text-color: #333;
+  --header-bg: #333;
+  --header-text: white;
+  --nav-bg: rgba(51, 51, 51, 0.8);
+  --nav-link: #fff;
+  --nav-hover: #555;
+  --container-bg: rgba(242, 242, 242, 0.8);
+  --container-border: black;
+  --testimonial-bg: rgba(204, 204, 204, 0.5);
+  --card-bg: #f9f9f9;
+  --card-border: #ddd;
+  --button-bg: #4CAF50;
+  --button-hover: #45a049;
+}
+
+[data-theme="dark"] {
+  --bg-color: #222;
+  --text-color: #eee;
+  --header-bg: #111;
+  --header-text: #ddd;
+  --nav-bg: rgba(17, 17, 17, 0.9);
+  --nav-link: #ccc;
+  --nav-hover: #444;
+  --container-bg: rgba(34, 34, 34, 0.8);
+  --container-border: #555;
+  --testimonial-bg: rgba(68, 68, 68, 0.5);
+  --card-bg: #333;
+  --card-border: #444;
+  --button-bg: #388E3C;
+  --button-hover: #2E7D32;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  background-image: url("../images/logo.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+header {
+  background-color: var(--header-bg);
+  color: var(--header-text);
+  padding: 1em 0;
+  text-align: center;
+}
+
+nav {
+  background-color: var(--nav-bg);
+  padding: 0.5em 0;
+  text-align: center;
+}
+
+nav a {
+  color: var(--nav-link);
+  text-decoration: none;
+  padding: 0.5em 1em;
+  margin: 0 0.5em;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+  background-color: var(--nav-hover);
+}
+
+.container {
+  padding: 20px;
+  background-color: var(--container-bg);
+  border: 3px solid var(--container-border);
+  color: white;
+}
+
+.tour-details {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+}
+
+.testimonials {
+  background-color: var(--testimonial-bg);
+}
+
+button, .book-button, .checkout-button, #cart-button {
+  background-color: var(--button-bg);
+  transition: background-color 0.3s;
+}
+
+button:hover, .book-button:hover, .checkout-button:hover, #cart-button:hover {
+  background-color: var(--button-hover);
+}
+
+.theme-switcher {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px;
+  background: var(--button-bg);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.time-info {
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    display: inline-block;
+    margin: 10px 0;
+    font-size: 0.9em;
+}
+
+.time-display {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    padding: 15px 0;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+}
+
+.time-container {
+    text-align: center;
+    color: white;
+    padding: 15px;
+}
+
+.time-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.time-text {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.time-value {
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: #4CAF50;
+    font-family: 'Courier New', monospace;
+}
+
+.local-time-widget {
+    display: inline-block;
+    padding: 12px 20px;
+    background: rgba(0, 0, 0, 0.75);
+    border-radius: 8px;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 10px 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.local-time-widget .time-icon {
+    font-size: 20px;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+.local-time-widget .time-label {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 4px;
+    opacity: 0.9;
+}
+
+.local-time-widget .time-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #4CAF50;
+    letter-spacing: 1px;
+}
+
+/* Для темной темы */
+[data-theme="dark"] .local-time-widget {
+    background: rgba(255, 255, 255, 0.15);
+}
+[data-theme="dark"] .local-time-widget .time-value {
+    color: #8BC34A;
+}

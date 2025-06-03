@@ -6,6 +6,8 @@
     <title>Тур на Бали</title>
     <link rel="stylesheet" href="../style/project.css">
     <script src="../script/cart.js"></script>
+    <script src="../script/darktheme.js"></script>
+    <script src="../script/tour-time.js"></script>
 </head>
 <body>
     <header>
@@ -21,6 +23,7 @@
                 <button class="checkout-button">Оформить заказ</button>
             </div>
         </div>
+        <button class="theme-switcher" id="themeSwitcher">Сменить тему</button>
     </header>
 
     <nav>
@@ -29,7 +32,12 @@
 
     <div class="tour-details">
         <h1>Роскошный тур в Абу-Даби</h1>
-        <img src="../images/abu-dabi.jpg" alt="Абу-Даби">
+        <img src="../images/abu-dabi.webp" alt="Абу-Даби">
+        <div class="local-time-container">
+            <span class="time-icon">🕒</span>
+            <span class="time-label">Местное время</span>
+            <div id="local-time" class="time-value">--:--</div>
+        </div>
         <p>Абу-Даби — это воплощение восточной сказки, где сливаются традиции и современность. Вас ждут белоснежные пляжи с лазурными водами, невероятные небоскребы и величие мечети шейха Зайда. Погрузитесь в атмосферу роскоши: шопинг в галереях мировых брендов, ужины в ресторанах с мишленовскими звездами и прогулки по оазисам среди пустыни. Абу-Даби подарит вам незабываемые эмоции!</p>
         <ul>
             <li>Продолжительность: 7 дней</li>

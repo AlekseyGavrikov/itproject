@@ -6,6 +6,8 @@
     <title>Тур на Сейшелы</title>
     <link rel="stylesheet" href="../style/project.css">
     <script src="../script/cart.js"></script>
+    <script src="../script/darktheme.js"></script>
+    <script src="../script/tour-time.js"></script>
 </head>
 <body>
     <header>
@@ -21,6 +23,7 @@
                 <button class="checkout-button">Оформить заказ</button>
             </div>
         </div>
+        <button class="theme-switcher" id="themeSwitcher">Сменить тему</button>
     </header>
 
 
@@ -31,6 +34,11 @@
     <div class="tour-details">
         <h1>Райский тур на Сейшелы</h1>
         <img src="../images/seisheli.jpg" alt="Сейшелы">
+        <div class="local-time-container">
+            <span class="time-icon">🕒</span>
+            <span class="time-label">Местное время</span>
+            <div id="local-time" class="time-value">--:--</div>
+        </div>
         <p>Сейшелы — это 115 островов с гранитными скалами и пальмами, склонившимися к бирюзовой воде. Ваши дни будут наполнены дайвингом среди черепах, прогулками по заповеднику Валле-де-Мэ и отдыхом на пляжах с розовым песком. А вечером — креольский ром под шепот Индийского океана. Эликсир счастья!</p>
         <ul>
             <li>Продолжительность: 8 дней</li>
